@@ -1,41 +1,55 @@
-# PeakLoadNet ⚡
-**Real-Time National Peak Electricity Load Prediction Using Machine Learning**
+# 📘 PeakLoadNet – Energy Demand Prediction
+
+This project predicts **National Energy Demand** using Machine Learning techniques.  
+It includes complete data preprocessing, model training, evaluation, and deployment as a real-time API using Flask and Render.
 
 ---
 
-## 🔍 Description
-PeakLoadNet predicts the national electricity peak load using regional hourly demand data. The project implements multiple models to compare performance and accuracy, including Linear Regression, Neural Networks, and Random Forest.
+## 🚀 Project Overview
+
+The objective of this project is to analyze historical energy demand data and build a machine learning model that can predict future energy demand based on features such as:
+
+- Temperature  
+- Humidity  
+- Wind Speed  
+- Solar Radiation  
+- Historical Energy Demand  
+
+The final trained model is deployed as a **REST API**, allowing external applications to send input features and receive predicted demand values.
 
 ---
 
-## 🧠 Models Used
-- **Linear Regression** – Simple baseline for prediction.  
-- **MLPRegressor (Neural Network)** – Multi-layer Perceptron for non-linear relationships.  
-- **Random Forest Regressor** – Ensemble method to improve prediction accuracy.
+## 🧠 Machine Learning Models Used
+
+### ✔ Linear Regression *(Final deployed model)*  
+- Lightweight  
+- Fast inference  
+- Very small file size (<200 KB)  
+- Ideal for cloud deployment (Render)
+
+### ❌ Random Forest (Not deployed due to size limits)  
+A Random Forest model was also trained, but model file size exceeded Render’s 20MB free limit.  
+Therefore, Linear Regression was selected for deployment.
 
 ---
 
-## 📊 Features & Workflow
-1. **Data Collection & Cleaning** – Regional hourly electricity demand.  
-2. **Train-Test Split** – 80% training, 20% testing.  
-3. **Model Training** – Linear Regression, Neural Network, Random Forest.  
-4. **Prediction & Evaluation** – Accuracy measured using R² score.  
+## 📊 Key Features
+
+- Performed full dataset cleaning and preprocessing  
+- Resolved data leakage issues  
+- Converted datetime column and extracted usable features  
+- Created train/test split (80/20)  
+- Trained and evaluated multiple ML models  
+- Generated Actual vs Predicted comparison visualizations  
+- Calculated regression metrics (MAE, MSE, RMSE, R² Score)  
+- Exported final model using `.joblib` format  
+- Built a Flask backend for prediction  
+- Deployed API on Render Cloud Platform  
 
 ---
 
-## ⚙️ Tools & Libraries
-- Python 3.x  
-- [Scikit-learn](https://scikit-learn.org/)  
-- [Pandas](https://pandas.pydata.org/)  
-- Google Colab  
+## 🌐 Live API URL
 
----
-
-## 🧾 Accuracy
-| Model | R² Accuracy |
-|-------|------------|
-| Linear Regression | ~100% |
-| Neural Network (MLPRegressor) | 99.90% |
-| Random Forest Regressor | 99.90% |
-
-
+ backend is live and publicly accessible at:
+ 
+https://aicte-energy-peakloadnet-neural-network-5juq.onrender.com/
