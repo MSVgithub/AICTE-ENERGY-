@@ -4,7 +4,7 @@ import numpy as np
 
 app = Flask(__name__)
 
-# Load Linear Regression model
+# Load model
 lr = joblib.load("linear_model.joblib")
 
 @app.route("/")
@@ -13,8 +13,8 @@ def home():
 
 @app.route("/predict", methods=["POST"])
 def predict():
-    data = request.json["features"]
-    X = np.array(data).reshape(1, -1)
+    data = request.json["features"]      # input list
+    X = np.array([data])                 # 2D array shape (1, n)
     pred = lr.predict(X)[0]
     return jsonify({"prediction": float(pred)})
 
